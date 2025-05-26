@@ -18,22 +18,16 @@
     <div id="mensaje"></div>
 
     <script>
-        const form = document.getElementById("formulario");
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
+    // Mostrar mensaje
+    document.getElementById("mensaje-confirmacion").style.display = "block";
 
-            const nombre = document.getElementById("nombre").value;
-            const email = document.getElementById("email").value;
+    // Resetear formulario
+    this.reset();
+  });
+</script>
 
-            if (!nombre || !email) {
-                alert("Por favor, completa todos los campos.");
-                return;
-            }
-
-            alert("¡Formulario enviado!");
-            form.reset();
-        });
-    </script>
 </body>
 </html>
