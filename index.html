@@ -11,11 +11,29 @@
 
     <form id="formulario">
         <input type="text" id="nombre" placeholder="Escribe tu nombre">
+        <input type="email" id="email" placeholder="Escribe tu correo electrónico">
         <button type="submit">Enviar</button>
     </form>
 
     <div id="mensaje"></div>
 
-    <script src="script.js"></script>
+    <script>
+        const form = document.getElementById("formulario");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+            const email = document.getElementById("email").value;
+
+            if (!nombre || !email) {
+                alert("Por favor, completa todos los campos.");
+                return;
+            }
+
+            alert("¡Formulario enviado!");
+            form.reset();
+        });
+    </script>
 </body>
 </html>
